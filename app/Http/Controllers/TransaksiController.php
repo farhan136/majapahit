@@ -25,7 +25,6 @@ class TransaksiController extends Controller
            'qty' => 'required',
        ]);
 
-    	// return response()->json($request->qty);
     	$NPK = $request->session()->get('NPK');//mendapatkan NPK dari session karyawan yang login
     	
     	$transaksi = new Transaksi_Produksi;
@@ -35,8 +34,6 @@ class TransaksiController extends Controller
     	$transaksi->qty_actual = $request->qty;
     	$transaksi->save();
 
-
-    	// return response()->json(true);
     	return redirect('/transaksi')->with('status', 'Data berhasil ditambahkan');
     }
 
